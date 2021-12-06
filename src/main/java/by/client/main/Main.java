@@ -1,5 +1,5 @@
 package by.client.main;
 
-public class main {
-    
+public class Main {
+
 }

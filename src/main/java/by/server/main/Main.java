@@ -1,5 +1,5 @@
 package by.server.main;
 
-public class main {
+public class Main {
 
 }
