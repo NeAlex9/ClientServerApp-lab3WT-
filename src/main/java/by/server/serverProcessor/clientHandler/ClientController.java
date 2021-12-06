@@ -1,6 +1,9 @@
 package by.server.serverProcessor.clientHandler;
 
 import by.client.entity.Student;
+import by.client.entity.serverCommunicationEnum.Response;
+import by.client.entity.serverCommunicationEnum.StudentRequest;
+import by.client.entity.serverCommunicationEnum.StudentResponse;
 
 import java.util.List;
 
@@ -17,14 +20,14 @@ public class ClientController {
         if (request.getBody() instanceof Student body) {
             student = body;
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
             return response;
         }
 
         if (this.service.create(student)) {
-            response.setResponseType(ResponseType.OK);
+            response.setResponse(Response.OK);
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
         }
 
         return response;
@@ -36,14 +39,14 @@ public class ClientController {
         if (request.getBody() instanceof Student body) {
             student = body;
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
             return response;
         }
 
         if (this.service.edit(student)) {
-            response.setResponseType(ResponseType.OK);
+            response.setResponse(Response.OK);
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
         }
 
         return response;
@@ -53,11 +56,11 @@ public class ClientController {
         List<Student> students = this.service.getAll();
         StudentResponse response = new StudentResponse();
         if (students == null) {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
             response.setBody(null);
         }
         else {
-            response.setResponseType(ResponseType.OK);
+            response.setResponse(Response.OK);
             response.setBody(students);
         }
 
@@ -70,16 +73,16 @@ public class ClientController {
         if (request.getBody() instanceof Integer) {
             id = (int) request.getBody();
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
             return response;
         }
 
         Student studentToSend = this.service.get(id);
         if (studentToSend != null) {
-            response.setResponseType(ResponseType.OK);
+            response.setResponse(Response.OK);
             response.setBody(studentToSend);
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
         }
 
         return response;
@@ -91,16 +94,16 @@ public class ClientController {
         if (request.getBody() instanceof User body) {
             user = body;
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
             return response;
         }
 
         User userResult = this.service.register(user);
         if (userResult != null) {
-            response.setResponseType(ResponseType.OK);
+            response.setResponse(Response.OK);
             response.setBody(userResult);
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
         }
 
         return response;
@@ -112,16 +115,16 @@ public class ClientController {
         if (request.getBody() instanceof User body) {
             user = body;
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
             return response;
         }
 
         User userResult = this.service.login(user);
         if (userResult != null) {
-            response.setResponseType(ResponseType.OK);
+            response.setResponse(Response.OK);
             response.setBody(userResult);
         } else {
-            response.setResponseType(ResponseType.ERROR);
+            response.setResponse(Response.ERROR);
         }
 
         return response;
@@ -129,7 +132,7 @@ public class ClientController {
 
     public StudentResponse notFound() {
         StudentResponse response = new StudentResponse();
-        response.setResponseType(ResponseType.NOTFOUND);
+        response.setResponse(Response.NOTFOUND);
         return response;
     }
 }

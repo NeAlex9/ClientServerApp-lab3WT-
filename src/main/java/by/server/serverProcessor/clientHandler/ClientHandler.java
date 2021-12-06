@@ -1,5 +1,7 @@
 package by.server.serverProcessor.clientHandler;
 
+import by.client.entity.serverCommunicationEnum.StudentRequest;
+import by.client.entity.serverCommunicationEnum.StudentResponse;
 import by.server.dao.ServerDAOFactory;
 
 import java.io.EOFException;
