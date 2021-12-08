@@ -1,65 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="17" class="java.beans.XMLDecoder">
- <object class="by.client.entity.User.User">
+<java version="16.0.2" class="java.beans.XMLDecoder">
+ <object class="by.client.entity.User">
   <void property="id">
    <int>1</int>
   </void>
   <void property="login">
-   <string>user</string>
+   <string>aleks</string>
   </void>
   <void property="password">
-   <string>user</string>
+   <string>123456</string>
   </void>
   <void property="role">
-   <object class="java.lang.Enum" id="UserRole0" method="valueOf">
-    <class>by.client.entity.role.UserRole</class>
+   <object class="java.lang.Enum" method="valueOf">
+    <class>by.client.entity.Role</class>
     <string>ADMIN</string>
    </object>
-  </void>
- </object>
- <object class="by.client.entity.User.User">
-  <void property="id">
-   <int>2</int>
-  </void>
-  <void property="login">
-   <string>guest</string>
-  </void>
-  <void property="password">
-   <string>guest</string>
-  </void>
-  <void property="role">
-   <object class="java.lang.Enum" id="UserRole1" method="valueOf">
-    <class>by.client.entity.role.UserRole</class>
-    <string>USER</string>
-   </object>
-  </void>
- </object>
- <object class="by.client.entity.User.User">
-  <void property="id">
-   <int>3</int>
-  </void>
-  <void property="login">
-   <string>client</string>
-  </void>
-  <void property="password">
-   <string>client</string>
-  </void>
-  <void property="role">
-   <object idref="UserRole1"/>
-  </void>
- </object>
- <object class="by.client.entity.User.User">
-  <void property="id">
-   <int>4</int>
-  </void>
-  <void property="login">
-   <string>admin</string>
-  </void>
-  <void property="password">
-   <string>admin</string>
-  </void>
-  <void property="role">
-   <object idref="UserRole0"/>
   </void>
  </object>
 </java>
