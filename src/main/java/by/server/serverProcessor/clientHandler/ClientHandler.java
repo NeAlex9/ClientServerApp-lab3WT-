@@ -12,6 +12,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import static by.client.entity.serverCommunicationEnum.Request.*;
+
 public class ClientHandler extends Thread {
     private final ObjectInputStream in;
     private final ObjectOutputStream out;
@@ -30,7 +32,7 @@ public class ClientHandler extends Thread {
         try {
             while (true) {
                 StudentRequest request = (StudentRequest) this.in.readObject();
-                StudentResponse response = switch (request.getRequestType()) {
+                StudentResponse response = switch (request.getRequest()) {
                     case CREATE -> this.controller.create(request);
                     case GET -> this.controller.get(request);
                     case GET_ALL -> this.controller.getAll();

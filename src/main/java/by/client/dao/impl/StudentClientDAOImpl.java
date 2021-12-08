@@ -1,5 +1,6 @@
 package by.client.dao.impl;
 
+import by.client.dao.SocketManager;
 import by.client.dao.StudentClientDAO;
 import by.client.entity.Student;
 import by.client.entity.User;
