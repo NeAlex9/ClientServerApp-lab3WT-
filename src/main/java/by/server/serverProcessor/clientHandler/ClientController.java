@@ -1,16 +1,18 @@
 package by.server.serverProcessor.clientHandler;
 
 import by.client.entity.Student;
+import by.client.entity.User;
 import by.client.entity.serverCommunicationEnum.Response;
 import by.client.entity.serverCommunicationEnum.StudentRequest;
 import by.client.entity.serverCommunicationEnum.StudentResponse;
+import by.server.service.StudentServerService;
 
 import java.util.List;
 
 public class ClientController {
     private final StudentServerService service;
 
-    public StudentController(StudentServerService service) {
+    public ClientController(StudentServerService service) {
         this.service = service;
     }
 
